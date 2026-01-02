@@ -1,0 +1,77 @@
+Frontend Creation Instructions for Airline Booking & Operations System
+======================================================================
+
+Goal:
+-----
+Generate a Flutter mobile application that consumes the FastAPI backend APIs
+for the Airline Booking & Operations System exam project.
+
+Requirements:
+-------------
+- Flutter SDK (latest stable, 3.x)
+- Dart language
+- Android support required
+- State management: Provider
+- HTTP client: http package
+- Local storage: shared_preferences (for JWT tokens)
+- QR code generation: qr_flutter (for boarding passes)
+
+Backend Integration:
+--------------------
+- API base URL must be configurable (lib/config.dart).
+- Use http://10.0.2.2:8000 for Android emulator.
+- Use http://<PC-IP>:8000 for physical device on same network.
+- All requests must include JWT in Authorization header after login.
+
+Features to Implement:
+----------------------
+Passenger:
+- Register / Login
+- Complete profile (passport, nationality, DOB, etc.)
+- Search flights (origin, destination, date)
+- View flight details and seat map
+- Book seats and perform mock payment
+- Manage trips (upcoming / past bookings)
+- Check-in (24h–1h before departure)
+- Boarding pass with QR code
+- Receive announcements (delay, cancellation, gate change, boarding, info)
+
+Staff:
+- Manage airplanes and seat templates
+- Create and update flights
+- Publish announcements
+- Manage bookings (cancel, reassign seats)
+
+Project Structure:
+------------------
+lib/
+├─ main.dart
+├─ config.dart
+├─ models/              # Flight, Booking, User, Announcement
+├─ services/            # API service classes
+├─ providers/           # State management
+├─ screens/
+│  ├─ auth/             # Login, Register, Profile
+│  ├─ flights/          # Search, Details, SeatMap
+│  ├─ booking/          # Seats, Payment, Summary
+│  ├─ trips/            # Upcoming, Past
+│  ├─ checkin/          # Check-in, Boarding Pass
+│  └─ announcements/    # List / details
+├─ widgets/             # Reusable UI components
+
+Dependencies:
+-------------
+flutter pub add http provider shared_preferences intl qr_flutter
+
+UI Guidelines:
+--------------
+- Clean navigation (Navigator or GoRouter).
+- Handle loading, error, and empty states gracefully.
+- Usable UI; design quality is not graded.
+
+Submission Checklist:
+---------------------
+- Flutter source code
+- README or instructions.txt with setup steps
+- Backend configuration (API base URL)
+- APK file (optional but recommended)
